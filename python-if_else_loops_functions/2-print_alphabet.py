@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-print(''.join(chr(i) for i in range(ord('a'), ord('z') + 1)), end='')
+for alphabet in range(ord('a'), ord('z') + 1):
+    print("{:s}".format(chr(alphabet)), end='')
