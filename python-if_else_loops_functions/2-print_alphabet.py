@@ -1,3 +1,2 @@
 #!/usr/bin/python3
-alphabet = ''.join(chr(i) for i in range(97, 123))
-print(alphabet, end='')
+print(''.join(chr(i) for i in range(ord('a'), ord('z') + 1)), end='')
