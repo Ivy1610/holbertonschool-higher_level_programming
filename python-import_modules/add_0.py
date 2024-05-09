@@ -9,6 +9,7 @@ def add(a, b):
     Returns:
         The return value. a + b
     """
-    add = 1 + 2
-    add = int(add)
+    a = 1,
+    b = 2,
+    result = a + b
     return (a + b)
