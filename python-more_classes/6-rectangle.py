@@ -59,11 +59,18 @@ class Rectangle:
 
     def __str__(self):
         """Method srting object"""
+        rectangle = []
+
         if self._width == 0 or self.__height == 0:
             return ""
-        for row in range(self.__height - 1):
-            print("#" * self.__width)
-        return ("#" * self.__width)
+        for i in range(self.__height):
+            for j in range(self.__width):
+                rectangle.append("#")
+            retangle.append("\n")
+
+        rectangle.pop()
+
+        return "".join(rectangle)
 
     def __repr__(self):
         """repr method"""
