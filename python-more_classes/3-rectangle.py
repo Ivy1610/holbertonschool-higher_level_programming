@@ -24,7 +24,7 @@ class Rectangle:
     def width(self):
         """Width retriver
         Returns:
-            int: the width of the rectangla
+            int: the width of the rectangle
         """
         return self.__width
 
@@ -44,7 +44,7 @@ class Rectangle:
             int: the height of the rectangle
         """
         return self.__height
-    
+
     @height.setter
     def height(self, value):
         """Setter Method of height"""
@@ -68,6 +68,6 @@ class Rectangle:
         """Method string object"""
         if self.width == 0 or self.height == 0:
             return ""
-        for row in range(self.__height -1):
+        for row in range(self.__height - 1):
             print("#" * self.__width)
         return ("#" * self.__width)
