@@ -55,26 +55,22 @@ class Rectangle:
         """Method to return perimeter of width and height"""
         if self.__width == 0 or self.__height == 0:
             return 0
-        return (self.__width + self.__height) * 2
+        return 2 * (self.__width + self.__height)
 
     def __str__(self):
         """Method srting object"""
-        rectangle = []
+        rectangle = ""
 
         if self._width == 0 or self.__height == 0:
-            return ""
-        for i in range(self.__height):
-            for j in range(self.__width):
-                rectangle.append("#")
-            retangle.append("\n")
+            return rectangle
+        for row in range(self.__height):
+            rectangle += ("#" * self.__width) + "\n"
 
-        rectangle.pop()
-
-        return "".join(rectangle)
+        return rectangle[:-1]
 
     def __repr__(self):
         """repr method"""
-        return ("Rectangle({}, {})".format(self.__width, self.__height))
+        return ("Rectangle({:d}, {:d})".format(self.__width, self.__height))
 
     def __del__(self):
         """Delete object/instance"""
