@@ -16,21 +16,21 @@ Numbers
 	>>> add_integer(1, 2)
 	3
 
-	It also works works with floating-point values, cast to integer.
+It also works works with floating-point values, cast to integer.
 
 ::
 
 	>>> add_integer(1.2, 1.2)
 	2
 
-	The number two is optionnal, by default is equal to 98.
+The number two is optionnal, by default is equal to 98.
 
 ::
 
 	>>> add_integer(2)
 	100
 
-	With number negative, work too.
+With number negative, work too.
 
 ::
 
@@ -66,12 +66,12 @@ Errors of floating-values. A error is raised.
 
 ::
 
->>> add_integer(float('inf'))
-Traceback (most recent call last):
-...
-OverflowError: cannot convert float infinity to integer
+	>>> add_integer(float('inf'))
+	Traceback (most recent call last):
+		...
+	OverflowError: cannot convert float infinity to integer
 
->>> add_integer(float('nan'))
-Traceback (most recent call last):
-...
-ValueError: cannot convert float NaN to integer
+	>>> add_integer(float('nan'))
+	Traceback (most recent call last):
+		...
+	ValueError: cannot convert float NaN to integer
