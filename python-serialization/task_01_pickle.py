@@ -18,12 +18,12 @@ class CustomObject:
             with open(filename, 'wb') as file:
                 pickle.dump(self, file)
         except Exception:
-            return
+            return None
 
     @classmethod
     def deserialize(cls, filename):
         try:
             with open(filename, 'rb') as file:
                 return pickle.load(file)
-        except Excption as e:
+        except Exception as e:
             return None
