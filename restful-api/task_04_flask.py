@@ -22,7 +22,7 @@ def status():
     return "OK"
 
 
-@app.route('/users/<usernames>')
+@app.route('/users/<username>')
 def user(username):
     user = users.get(username)
     if user:
