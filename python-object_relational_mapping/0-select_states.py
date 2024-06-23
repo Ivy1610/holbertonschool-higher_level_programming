@@ -1,9 +1,21 @@
 #!/usr/bin/python3
+"""
+Script that lists all states from the database
+"""
 import MySQLdb
 import sys
 
 
 def connectDb(username, password, database):
+    """
+        Get connection with the database .
+        Args:
+            username (str): Username of the user
+            password (str): Password of the user
+            database (str): Database to retrieve
+        Return:
+            Connection database
+    """
     connect = MySQLdb.connect(
         host="localhost",
         port=3306,
