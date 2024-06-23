@@ -33,10 +33,11 @@ if __name__ == "__main__":
 
     connect = connectDb(username, password, database)
     curs = connect.cursor()
-    curs.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    curs.execute("SELECT * FROM states ORDER BY id ASC")
     query_rows = curs.fetchall()
 
     for row in query_rows:
-        print(row)
+        if row[1].startswith("N"):
+            print(row)
     curs.close()
     connect.close()
