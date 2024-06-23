@@ -1,9 +1,20 @@
 #!/usr/bin/python3
+""" script that lists all states with a name starting with N (upper N) from the database hbtn_0e_0_usa
+"""
 import MySQLdb
 import sys
 
 
 def connectDb(username, password, database):
+    """
+        Get connection with the database.
+        Args:
+            username (str): Username of the user.
+            password (str): Password of the user.
+            database (str): Database to retrieve.
+        Return:
+            Connection database.
+    """
     connect = MySQLdb.connect(
         host="localhost",
         port=3306,
