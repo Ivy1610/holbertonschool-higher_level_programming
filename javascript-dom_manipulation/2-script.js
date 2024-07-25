@@ -1,5 +1,6 @@
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('red_header').addEventListener("click", function () {
-        document.querySelector('header').classList.add('red');
-    });
+const $headerElem = $('header');
+const $divRedHeader = $('div#red_header');
+
+$divRedHeader.on('click', function () {
+    $headerElem.addClass('red');
 });

@@ -1,12 +1,14 @@
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('red_header').addEventListener("click", function () {
-        const header = document.querySelector('header');
-        if (header.classList.contains('red')) {
-            header.classList.remove('red');
-            header.classList.add('green');
-        } else {
-            header.classList.add('red');
-            header.classList.remove('green');
-        }
-    });
+const $headerElem = $('header');
+const $divRedHeader = $('DIV#toggle_header');
+
+$divRedHeader.on('click', () => {
+  const currentClass = $headerElem.attr('class');
+
+  if (currentClass === 'green') {
+    $headerElem.toggleClass(`${currentClass} red`);
+  }
+
+  if (currentClass === 'red') {
+    $headerElem.toggleClass(`${currentClass} green`);
+  }
 });

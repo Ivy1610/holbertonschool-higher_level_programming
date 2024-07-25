@@ -1,5 +1,7 @@
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('red_header').addEventListener("click", function() {
-        document.querySelector('header').style.color = '#FF0000';
-    });
+
+const $headerElem = $('header');
+const $divRedHeader = $('div#red_header');
+
+$divRedHeader.click(function() {
+    $headerElem.css('color' = '#FF0000');
 });
