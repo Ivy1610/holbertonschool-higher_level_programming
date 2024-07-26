@@ -5,12 +5,11 @@ import csv
 app = Flask(__name__)
 
 def read_json(file_path):
-    with open(file_path, 'r') as file:
-        data = json.load(file)
-    return data
+    with open(file_path) as file:
+        return json.load(file)
 
 def read_csv(file_path):
-    with open(file_path, 'r') as file:
+    with open(file_path) as file:
         reader = csv.DictReader(file)
         for row in reader:
             row['id'] = int(row['id'])
@@ -21,20 +20,31 @@ def read_csv(file_path):
 @app.route('/products')
 def products():
     source = request.agrs.get('source')
-    product_id = request.agrs.get('id', type=int)
-
-    if source not in ['json', 'csv']:
-        return render_template('product_display.html', error='Wrong source')
+    product_id = request.agrs.get('id')
+    products = []
+    error_message = None
     
     if source == 'json':
-        products = read_json('products.json')
+        try:
+            products = read_json('products.json')
+        except FileNotFoundError:
+            error_message = 'JSON File not found'
     elif source == 'csv':
-        products = read_csv('products.csv')
+        try:
+            products = read_csv('products.csv')
+        except FileNotFoundError:
+            error_message = 'CSV File not found'
+    else:
+        error_message = 'Wrong source'
 
-    if product_id:
-        products = [product for product in products if product['id'] == product_id]
-        if not products:
-            return render_template('product_display.html', error='Product not found')
+    if not error_message and product_id:
+        try:
+            product_id = int(product_id)
+            products = [product for product in products if product['id'] == product_id]
+            if not products:
+                error_message = 'Product not found'
+        except ValueError:
+            error_message = 'Invalid product ID'
         
     return render_template('product_display.html', products=products)
 
